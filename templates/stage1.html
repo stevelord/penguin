@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block metanav %}
+Stage 1 - Welcome!
+{% endblock %}
+{% block body %}
+<p>Welcome to Penguin, the Lahana Node Wizard. I can make the choices for you and just give you the connection details or you can specify your own username, password and secret.</p> 
+	<form action="{{ url_for('stage2') }}" method=post class=add-entry>
+		<fieldset>
+			<input type="radio" name="complex" value="easy">
+			<label for="easy">Don't ask questions, just give me a node.</label>
+			<br/>
+			<input type="radio" name="complex" value="medium">
+			<label for="medium">I want to set up my own credentials.</label>
+			<br/>
+			<input type=submit name="wizard" value="Start Wizard">
+		</fieldset>
+	</form>
+{% endblock %}

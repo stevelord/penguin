@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block metanav %}
+Stage 2 - Setup
+{% endblock %}
+{% block body %}
+	{% if complexity == "easy" %}
+		<p>Press next to install Lahana with the default settings</p>
+		<form action="{{ url_for('stage3') }}" method=post class=add-entry>
+	{% else %}
+	<p>Fill in the form below then click Next to start.</p>
+	<form action="{{ url_for('stage3') }}" method=post class=add-entry>
+		<fieldset>
+			<label for="username">Username:</label>
+			<input type="text" name="username" value="{{ username }}">
+			<br/>
+			<label for="password">Password:</label>
+			<input type="text" name="password" value="{{ password }}">
+			<br/>
+			<label for="secret">Secret (this should be hard to guess for a private node):</label>
+			<input type="text" name="skey" value="{{ skey }}">
+			<br/>
+			{% if complexity == "hard" %}
+				<label for="tor">Route traffic over Tor?</label>
+				<input type="checkbox" name="tor" checked>
+				<br/>
+				<label for="l2tp">Set up an L2TP VPN</label>
+				<input type="checkbox" name="l2tp" checked>
+				<br/>
+				<label for="torbridge">Create Tor bridge</label>
+				<input type="checkbox" name="torbridge" checked>
+				<br/>
+			{% endif %}
+		</fieldset>
+		{% endif %}
+			<input type=submit name="wizard" value="Next">
+	</form>
+{% endblock %}

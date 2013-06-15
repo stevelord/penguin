@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block metanav %}
+Setup Complete!
+{% endblock %}
+{% block body %}
+<p>You're up and running! Here are the settings:</p>
+<ul>
+	<li>Host: {{hostname}}</li>
+	<li>Username: {{username}}</li>
+	<li>Password: {{password}}</li>
+	<li>Secret: {{skey}}</li>
+</ul>
+<p>Please make a note of these settings somewhere safe, you won't see them again once you leave this page. You won't be able to connect to this page again so don't hit refresh if you haven't copied the settings.</p>
+<p>Make your node public, publish it to <a href="http://www.reddit.com/r/lahananodes/">Reddit</a>!</p>
+<p>If you're having problems or it doesn't work, terminate this EC2 instance and start again with a new one.</p> 
+{% endblock %}
